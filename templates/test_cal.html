@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>简单的计算器</title>
+  </head>
+  <body>
+    <h3>输入简单的数字进行四则运算</h3>
+    <!-- action 是指数据提交到哪个网页 -->
+    <form action="/test_cal" method="post">
+      <input type="text" name="x" value="{{x}}" />
+      <select name="op">
+        <option value="add" {% if op == 'add' %}selected{% endif %}>+</option>
+        <option value="sub" {% if op == 'sub' %}selected{% endif %}>-</option>
+        <option value="mul" {% if op == 'mul' %}selected{% endif %}>*</option>
+        <option value="div" {% if op == 'div' %}selected{% endif %}>/</option>
+      </select>
+      <input type="text" name="y" value="{{y}}" />=<span>{{result}}</span>
+      <div><input type="submit" value="cal" /></div>
+    </form>
+  </body>
+</html>

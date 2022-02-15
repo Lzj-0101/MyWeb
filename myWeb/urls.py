@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,re_path
+from django.urls import path, re_path
 import test_home.views
 from . import views
 
@@ -45,21 +45,25 @@ path - 匹配非空字段,包括路径分隔符'/'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-# http://127.0.0.1:8000/page/1
-    path('page/1',views.page_1),
-# http://127.0.0.1:8000
-    path('',test_home.views.test_index_view,name='test_index_view'),
-# http://127.0.0.1:8000/page/2-100
-    path('page/<int:num>',views.page_n),
-# http://127.0.0.1:8000/n/op/m 进行两位数以内的运算
-    re_path(r'(?P<x>[0-9]{1,2})/(?P<op>\w+)/(?P<y>[0-9]{1,2})',views.cal_1),
-# http://127.0.0.1:8000/n/操作符/m
-    path('<int:n>/<str:op>/<int:m>',views.cal_2),
-# http://127.0.0.1:8000/test_request
-    path('test_request',views.test_request),
-# http://127.0.0.1:8000/test_get_post
-    path('test_get_post',views.test_get_post),
-
-    path('test_html',views.test_html)
+    # http://127.0.0.1:8000/page/1
+    path('page/1', views.page_1),
+    # http://127.0.0.1:8000
+    path('', test_home.views.test_index_view, name='test_index_view'),
+    # http://127.0.0.1:8000/page/2-100
+    path('page/<int:num>', views.page_n),
+    # http://127.0.0.1:8000/n/op/m 进行两位数以内的运算
+    re_path(r'(?P<x>[0-9]{1,2})/(?P<op>\w+)/(?P<y>[0-9]{1,2})', views.cal_1),
+    # http://127.0.0.1:8000/n/操作符/m
+    path('<int:n>/<str:op>/<int:m>', views.cal_2),
+    # http://127.0.0.1:8000/test_request
+    path('test_request', views.test_request),
+    # http://127.0.0.1:8000/test_get_post
+    path('test_get_post', views.test_get_post),
+    # http://127.0.0.1:8000/test_template_html
+    path('test_template_html', views.test_template_html),
+    # http://127.0.0.1:8000/test_if_for
+    path('test_if_for', views.test_if_for),
+    # http://127.0.0.1/test_cal
+    path('test_cal', views.test_cal),
 
 ]
